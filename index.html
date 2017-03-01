@@ -20,14 +20,51 @@
                 align-items: center;
         height: 100vh;
       }
+      
+
+      a#button {
+        -webkit-touch-callout: none;
+        /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;
+        /* prevent webkit from resizing text to fit */
+        -webkit-tap-highlight-color: transparent;
+        /* prevent tap highlight color*/
+        -webkit-tap-highlight-color: transparent;
+        /* prevent tap highlight color*/
+        -webkit-user-select: none;
+        /* prevent copy paste, to allow, change 'none' to 'text' */
+        font-size: 1.5rem;
+        background-color: transparent;
+        border: 1px solid #dfdfdf;
+        padding: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0.8;
+        font-size: 2rem;
+        line-height: 1.4;
+        margin: 2rem;
+      }
+      
+      a#button:focus {
+        outline: 0 !important;
+      }
+      
+      a#button:hover {
+        opacity: 1.0;
+        border: 1px solid #ccc;
+      }
+      
+      a#button:active {
+        border: 1px solid #ccc;
+        box-shadow: inset 1px 5px 16px 2px rgba(0, 0, 0, 0.24);
+      }
+
 </style>
 
 <div id="container">
 
-  <h3>The website of user experience designer Andric Tham.</h3>
-  
-  Coming soon!
+  <h3>The <em>oh-so-underwhelming</em> website of user experience designer Andric Tham.</h3>
 
-  <a href="mailto:andric@nuisance.co">Get in touch</a>
+  <a id="button" href="mailto:andric@nuisance.co">Get in touch by e-mail</a>
   
 </div>
