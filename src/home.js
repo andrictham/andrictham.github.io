@@ -35,6 +35,8 @@ class Home extends Component {
         <h2>{this.state.name}</h2>
         <h4>{this.state.title}</h4>
         <p>{this.state.writeup}</p>
+        <p>{this.state.location}</p>
+        <p>{this.state.currentPosition}</p>
       </div>
     );
   }
