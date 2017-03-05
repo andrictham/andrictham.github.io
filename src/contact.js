@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import getPageIntro from './utils/_getPageIntro'
 
 class Contact extends Component{
+
   render() {
-    return(
-      <div>
-        <h2>Got a question?</h2>
-        <p>The <em>eaaasiest</em> thing to do would be to tweet me at <a href="https://twitter.com/astralwave">@astralwave</a>.</p>
+    let path = this.props.location.pathname
+    let array = this.props.pageIntro
+    return (
+      <div className="contact">
+        {getPageIntro(array, path)}
       </div>
-    );
+    )
   }
 }
 
