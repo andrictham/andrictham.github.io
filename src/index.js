@@ -21,8 +21,35 @@ class App extends Component{
   constructor() {
     super()
     this.state = {
-      pageIntro: [],
-      profile: {},
+      pageIntro: [
+        {
+          fields: {
+            title: '',
+            description: ''
+          }
+        },
+        {
+          fields: {
+            title: '',
+            description: ''
+          }
+        },
+        {
+          fields: {
+            title: '',
+            description: ''
+          }
+        }
+      ],
+      profile: {
+        photo: {
+          fields: {
+            file: {
+              url: ''
+            }
+          }
+        }
+      },
       who: [],
       work: [],
       contact: []
@@ -43,6 +70,17 @@ class App extends Component{
   }
 
   render() {
+  var children = React.Children.map(
+    this.props.children, (child) => {
+      return React.cloneElement(child, {
+        pageIntro: this.state.pageIntro,
+        profile: this.state.profile,
+        who: this.state.who,
+        work: this.state.work,
+        contact: this.state.contact
+      })
+    }
+  )
     return (
       <div>
         <h1>Create React App + React Router in ES6 Example</h1>
@@ -53,14 +91,7 @@ class App extends Component{
           <li> <Link to="/contact" activeClassName="active"> Contact </Link> </li>
         </ul>
         <div className="content">
-          {
-            React.cloneElement(this.props.children, {
-            pageIntro: this.state.pageIntro,
-            profile: this.state.profile,
-            who: this.state.who,
-            work: this.state.work,
-            contact: this.state.contact
-          })}
+          {children}
         </div>
       </div>
     )

@@ -9,8 +9,9 @@ class Contact extends Component{
         <Markdown>
           {this.props.pageIntro[2].fields.description}
         </Markdown>
+
       </div>
-    )
+    );
   }
 }
 
