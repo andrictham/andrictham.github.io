@@ -24,18 +24,21 @@ class App extends Component{
       pageIntro: [
         {
           fields: {
+            page: '',
             title: '',
             description: ''
           }
         },
         {
           fields: {
+            page: '',
             title: '',
             description: ''
           }
         },
         {
           fields: {
+            page: '',
             title: '',
             description: ''
           }
