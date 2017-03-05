@@ -1,7 +1,7 @@
 import React from 'react'
 import Markdown from 'react-remarkable'
 
-function getPageIntro(array, path) {
+function _getPageIntro(array, path) {
     let result = {}
     array.map(
       (pageIntro) => {
@@ -22,4 +22,4 @@ function getPageIntro(array, path) {
     )
   }
 
-export default getPageIntro
+export default _getPageIntro

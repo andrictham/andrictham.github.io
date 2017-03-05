@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import getPageIntro from './utils/_getPageIntro'
+import _getPageIntro from './utils/_getPageIntro'
 
 class Work extends Component{
 
@@ -8,7 +8,9 @@ class Work extends Component{
     let array = this.props.pageIntro
     return (
       <div className="work">
-        {getPageIntro(array, path)}
+        {_getPageIntro(array, path)}
+        <h3>Latest Projects</h3>
+
       </div>
     )
   }
