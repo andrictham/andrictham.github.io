@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from 'react-router';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from 'react-router'
 import contentful from 'contentful'
 import Home from './home'
-import { Stuff, StuffIWant } from './stuff'
 import Contact from './contact'
-import './index.css';
+import Who from './who'
+import './index.css'
 
 var destination = document.querySelector("#root");
 
@@ -20,6 +20,7 @@ class App extends Component{
   constructor() {
     super()
     this.state = {
+      pageIntro: [],
       who: [],
       work: [],
       contact: []
@@ -29,11 +30,17 @@ class App extends Component{
 
   getContent() {
     client.getEntries({
-    content_type: 'workExperience'
-  }).then((entries) => {
-      this.setState({work: entries.items})
-      console.log(entries.items)
-    })
+      content_type: 'pageIntro'
+    }).then((entries) => {
+        this.setState({pageIntro: entries.items})
+        console.log(entries.items)
+      })
+    client.getEntries({
+      content_type: 'contect'
+    }).then((entries) => {
+        this.setState({pageIntro: entries.items})
+        console.log(entries.items)
+      })
   }
 
   componentWillMount() {
@@ -45,12 +52,18 @@ class App extends Component{
       <div>
         <h1>Create React App + React Router in ES6 Example</h1>
         <ul className="header">
-          <li> <IndexLink to="/" activeClassName="active"> Home </IndexLink> </li>
-          <li> <Link to="/stuff" activeClassName="active"> Stuff </Link> </li>
+          <li> <IndexLink to="/" activeClassName="active"> Andric </IndexLink> </li>
+          <li> <Link to="/who" activeClassName="active"> Who? </Link> </li>
+          <li> <Link to="/work" activeClassName="active"> Work </Link> </li>
           <li> <Link to="/contact" activeClassName="active"> Contact </Link> </li>
         </ul>
         <div className="content">
-          {this.props.children}
+          {React.cloneElement(this.props.children, {
+            pageIntro: this.state.pageIntro,
+            who: this.state.who,
+            work: this.state.work,
+            contact: this.state.contact
+          })}
         </div>
       </div>
     )
@@ -61,9 +74,8 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="who" component={Who} who={this.state.who} />
-      <Route path="work/:url" component={Work} work={this.state.work} />
-      <Route path="contact" component={Contact} contact={this.state.contact} />
+      <Route path="who" component={Who} />
+      <Route path="contact" component={Contact} />
     </Route>
   </Router>,
   destination
