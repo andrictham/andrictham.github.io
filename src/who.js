@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import getPageIntro from './utils/_getPageIntro'
+import React, { Component } from "react"
+import getPageIntro from "./utils/_getPageIntro"
 
 class Who extends Component{
 
@@ -7,7 +7,7 @@ class Who extends Component{
     let path = this.props.location.pathname
     let array = this.props.pageIntro
     return (
-      <div className='who'>
+      <div className="who">
         {getPageIntro(array, path)}
 
         <h3>My Philosophy</h3>

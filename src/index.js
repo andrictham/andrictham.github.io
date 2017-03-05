@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from 'react-router'
-import contentful from 'contentful'
-import Home from './home'
-import Who from './who'
-import Work from './work'
-import Contact from './contact'
-import './index.css'
+import React, { Component } from "react"
+import ReactDOM from "react-dom"
+import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from "react-router"
+import contentful from "contentful"
+import Home from "./home"
+import Who from "./who"
+import Work from "./work"
+import Contact from "./contact"
+import "./index.css"
 
 var destination = document.querySelector("#root");
 
 // get Contentful access
 var client = contentful.createClient({
-  accessToken: '73709362a492ae7cd77aad25734791ac45d7c1af75d8ef35f0248b430bbd0459',
-  space: 'tdrpnmgt2t7o'
+  accessToken: "73709362a492ae7cd77aad25734791ac45d7c1af75d8ef35f0248b430bbd0459",
+  space: "tdrpnmgt2t7o"
 })
 
 class App extends Component{
@@ -22,20 +22,6 @@ class App extends Component{
     super()
     this.state = {
       pageIntro: [
-        {
-          fields: {
-            page: "",
-            title: "",
-            description: ""
-          }
-        },
-        {
-          fields: {
-            page: "",
-            title: "",
-            description: ""
-          }
-        },
         {
           fields: {
             page: "",
@@ -58,6 +44,9 @@ class App extends Component{
           fields: {
             caseStudy: "",
             headline: "",
+          },
+          sys: {
+            id: ""
           }
         }
       ],

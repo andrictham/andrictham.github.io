@@ -6,7 +6,11 @@ class Contact extends Component{
   render() {
     let path = this.props.location.pathname
     let array = this.props.pageIntro
-    return getPageIntro(array, path)
+    return (
+      <div className="contact">
+        {getPageIntro(array, path)}
+      </div>
+    )
   }
 }
 
