@@ -86,7 +86,6 @@ class App extends Component{
   )
     return (
       <div>
-        <h1>Create React App + React Router in ES6 Example</h1>
         <ul className="header">
           <li> <IndexLink to="/" activeClassName="active"> Andric </IndexLink> </li>
           <li> <Link to="/who" activeClassName="active"> Who? </Link> </li>
