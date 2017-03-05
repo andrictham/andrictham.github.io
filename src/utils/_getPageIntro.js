@@ -1,9 +1,9 @@
 import React from 'react'
 import Markdown from 'react-remarkable'
 
-function _getPageIntro(array, path) {
+function _getPageIntro(intros, path) {
     let result = {}
-    array.map(
+    intros.map(
       (pageIntro) => {
         if (path.includes(pageIntro.fields.page.toLowerCase())) {
           result = pageIntro.fields

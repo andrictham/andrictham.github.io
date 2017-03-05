@@ -5,10 +5,10 @@ class Work extends Component{
 
   render() {
     let path = this.props.location.pathname
-    let array = this.props.pageIntro
+    let intros = this.props.pageIntro
     return (
       <div className="work">
-        {_getPageIntro(array, path)}
+        {_getPageIntro(intros, path)}
         <h3>Latest Projects</h3>
 
       </div>
