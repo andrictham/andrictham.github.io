@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from 'react-router'
 import contentful from 'contentful'
 import Home from './home'
-import Contact from './contact'
 import Who from './who'
+import Work from './work'
+import Contact from './contact'
 import './index.css'
 
 var destination = document.querySelector("#root");
@@ -21,30 +22,24 @@ class App extends Component{
     super()
     this.state = {
       pageIntro: [],
+      profile: {},
       who: [],
       work: [],
       contact: []
     }
-    this.getContent = this.getContent.bind(this)
   }
 
-  getContent() {
+  componentWillMount() {
     client.getEntries({
       content_type: 'pageIntro'
     }).then((entries) => {
         this.setState({pageIntro: entries.items})
-        console.log(entries.items)
       })
     client.getEntries({
-      content_type: 'contect'
+      content_type: 'profile'
     }).then((entries) => {
-        this.setState({pageIntro: entries.items})
-        console.log(entries.items)
+        this.setState({profile: entries.items[0].fields})
       })
-  }
-
-  componentWillMount() {
-    this.getContent()
   }
 
   render() {
@@ -58,8 +53,10 @@ class App extends Component{
           <li> <Link to="/contact" activeClassName="active"> Contact </Link> </li>
         </ul>
         <div className="content">
-          {React.cloneElement(this.props.children, {
+          {
+            React.cloneElement(this.props.children, {
             pageIntro: this.state.pageIntro,
+            profile: this.state.profile,
             who: this.state.who,
             work: this.state.work,
             contact: this.state.contact
@@ -75,6 +72,7 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="who" component={Who} />
+      <Route path="work" component={Work} />
       <Route path="contact" component={Contact} />
     </Route>
   </Router>,

@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import Markdown from 'react-remarkable'
 
-class Contact extends Component{
+class Work extends Component{
   render() {
     return(
       <div>
-        <h2>{this.props.pageIntro[2].fields.title}</h2>
+        <h2>{this.props.pageIntro[1].fields.title}</h2>
         <Markdown>
-          {this.props.pageIntro[2].fields.description}
+          {this.props.pageIntro[1].fields.description}
         </Markdown>
       </div>
-    )
+    );
   }
 }
 
-export default Contact;
+export default Work;

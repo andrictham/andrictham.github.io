@@ -1,17 +1,43 @@
 import React, { Component } from 'react';
+import contentful from 'contentful'
+
+// get Contentful access
+var client = contentful.createClient({
+  accessToken: '73709362a492ae7cd77aad25734791ac45d7c1af75d8ef35f0248b430bbd0459',
+  space: 'tdrpnmgt2t7o'
+})
 
 class Home extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      photo: {
+        fields: {
+          file: {}
+        }
+      },
+    }
+  }
+
+  componentWillMount() {
+    client.getEntries({
+      content_type: 'profile'
+    }).then((entries) => {
+        this.setState({...entries.items[0].fields})
+      })
+  }
+
   render() {
     return (
       <div>
-        <h2>Hello there, stranger.</h2>
-        <p>This is an example project based on <a href="https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm" target="_blank">Kirupa’s</a> great tutorial on setting up React Router.</p>
-        <p>This example is adapted to use <a href="https://github.com/facebookincubator/create-react-app" target="_blank">create-react-app</a>, React Router v2, with components written in ES6 classes.</p>
-        <p>It acts as a modern starting point for spinning up simple React prototypes, with sensible styling that uses system fonts. Read more about the system font stack <a href="https://bitsofco.de/the-new-system-font-stack/" target="_blank">here</a>.</p>
-        <h4>Feel free to <a href="https://github.com/andrictham/react-router-kirupa" target="_blank">fork this</a> for your own use.</h4>
+        <img src={this.state.photo.fields.file.url} style={{height:'100px', borderRadius: '50%'}} alt='profile-pic'/>
+        <h2>{this.state.name}</h2>
+        <h4>{this.state.title}</h4>
+        <p>{this.state.writeup}</p>
       </div>
     );
   }
 }
 
-export default Home;
+export default Home
