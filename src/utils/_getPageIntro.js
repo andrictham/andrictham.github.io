@@ -13,11 +13,11 @@ function getPageIntro(array, path) {
 
     )
     return (
-      <div>
-      <h2>{result.title}</h2>
-        <Markdown>
-          {result.description}
-        </Markdown>
+      <div className="page-intro">
+        <h2>{result.title}</h2>
+          <Markdown>
+            {result.description}
+          </Markdown>
       </div>
     )
   }

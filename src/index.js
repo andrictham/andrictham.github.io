@@ -24,23 +24,23 @@ class App extends Component{
       pageIntro: [
         {
           fields: {
-            page: '',
-            title: '',
-            description: ''
+            page: "",
+            title: "",
+            description: ""
           }
         },
         {
           fields: {
-            page: '',
-            title: '',
-            description: ''
+            page: "",
+            title: "",
+            description: ""
           }
         },
         {
           fields: {
-            page: '',
-            title: '',
-            description: ''
+            page: "",
+            title: "",
+            description: ""
           }
         }
       ],
@@ -48,27 +48,52 @@ class App extends Component{
         photo: {
           fields: {
             file: {
-              url: ''
+              url: ""
             }
           }
         }
       },
-      who: [],
-      work: [],
-      contact: []
+      project: [
+        {
+          fields: {
+            caseStudy: "",
+            headline: "",
+          }
+        }
+      ],
+      writing: [
+        {
+          fields: {
+            link: "",
+            publicationName: "",
+            quote: "",
+            title: ""
+          }
+        }
+      ]
     }
   }
 
   componentWillMount() {
     client.getEntries({
-      content_type: 'pageIntro'
+      content_type: "pageIntro"
     }).then((entries) => {
         this.setState({pageIntro: entries.items})
       })
     client.getEntries({
-      content_type: 'profile'
+      content_type: "profile"
     }).then((entries) => {
         this.setState({profile: entries.items[0].fields})
+      })
+    client.getEntries({
+      content_type: "project"
+    }).then((entries) => {
+        this.setState({project: entries.items})
+      })
+    client.getEntries({
+      content_type: "writing"
+    }).then((entries) => {
+        this.setState({writing: entries.items})
       })
   }
 
@@ -78,9 +103,8 @@ class App extends Component{
       return React.cloneElement(child, {
         pageIntro: this.state.pageIntro,
         profile: this.state.profile,
-        who: this.state.who,
-        work: this.state.work,
-        contact: this.state.contact
+        project: this.state.project,
+        writing: this.state.writing
       })
     }
   )
