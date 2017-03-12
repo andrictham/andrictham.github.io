@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router"
 import _getPageIntro from "./utils/_getPageIntro"
 import _getSkills from "./utils/_getSkills"
 
@@ -26,6 +27,11 @@ class Who extends Component {
         <h3>Skills</h3>
         {_getSkills(skills)}
         <h3>Tools</h3>
+        <h3>Don't be shy</h3>
+        <Link to="contact">Send me an email</Link>
+        <a href={this.props.profile.linkedInProfile} target="_blank">
+          Add me on LinkedIn
+        </a>
       </div>
     )
   }
