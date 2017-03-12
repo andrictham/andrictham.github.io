@@ -37,8 +37,27 @@ class App extends Component{
               url: ""
             }
           }
+        },
+        resumePdf: {
+          fields: {
+            file: {
+              fileName: "",
+              url: ""
+            },
+            title: ""
+          }
         }
       },
+      skill: [
+        {
+          fields: {
+            name: ""
+          },
+          sys: {
+            id: ""
+          }
+        }
+      ],
       project: [
         {
           fields: {
@@ -75,6 +94,11 @@ class App extends Component{
         this.setState({profile: entries.items[0].fields})
       })
     client.getEntries({
+      content_type: "skill"
+    }).then((entries) => {
+      this.setState({skill: entries.items})
+    })
+    client.getEntries({
       content_type: "project"
     }).then((entries) => {
         this.setState({project: entries.items})
@@ -92,6 +116,7 @@ class App extends Component{
       return React.cloneElement(child, {
         pageIntro: this.state.pageIntro,
         profile: this.state.profile,
+        skill: this.state.skill,
         project: this.state.project,
         writing: this.state.writing
       })
