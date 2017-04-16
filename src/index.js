@@ -7,7 +7,6 @@ import Who from "./who"
 import Work from "./work"
 import Contact from "./contact"
 import "./index.css"
-import 'bulma/css/bulma.css'
 
 var destination = document.querySelector("#root");
 
