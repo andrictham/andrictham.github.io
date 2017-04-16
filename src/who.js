@@ -21,7 +21,7 @@ class Who extends Component {
         <h3>My Philosophy</h3>
         <p>{this.props.profile.philosophy}</p>
         <h4>{this.props.writing[0].fields.title}</h4>
-        <p>{this.props.writing[0].fields.quote}</p>
+        <blockquote>{this.props.writing[0].fields.quote}</blockquote>
         Read more on <a href={this.props.writing[0].fields.link} target="_blank">{this.props.writing[0].fields.publicationName}</a>
         <h3>Experience</h3>
         <h3>Skills</h3>
