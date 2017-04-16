@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router"
 import _getPageIntro from "./utils/_getPageIntro"
-import _getSkills from "./utils/_getSkills"
 
 class Who extends Component {
 
@@ -25,7 +24,11 @@ class Who extends Component {
         Read more on <a href={this.props.writing[0].fields.link} target="_blank">{this.props.writing[0].fields.publicationName}</a>
         <h3>Experience</h3>
         <h3>Skills</h3>
-        {_getSkills(skills)}
+        {
+          skills.map((skill) => {
+            return <span key={skill.sys.id} className="tag">{skill.fields.name}</span>
+          })
+        }
         <h3>Tools</h3>
         <h3>Don't be shy</h3>
         <Link to="contact">Send me an email</Link>
