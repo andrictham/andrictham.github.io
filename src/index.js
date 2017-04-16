@@ -59,6 +59,23 @@ class App extends Component{
           }
         }
       ],
+      tool: [
+        {
+          fields: {
+            name: "",
+            logo: {
+              fields: {
+                file : {
+                  url: ""
+                }
+              }
+            }
+          },
+          sys: {
+            id: ""
+          }
+        }
+      ],
       project: [
         {
           fields: {
@@ -100,6 +117,11 @@ class App extends Component{
       this.setState({skill: entries.items})
     })
     client.getEntries({
+      content_type: "tool"
+    }).then((entries) => {
+        this.setState({tool: entries.items})
+      })
+    client.getEntries({
       content_type: "project"
     }).then((entries) => {
         this.setState({project: entries.items})
@@ -118,6 +140,7 @@ class App extends Component{
         pageIntro: this.state.pageIntro,
         profile: this.state.profile,
         skill: this.state.skill,
+        tool: this.state.tool,
         project: this.state.project,
         writing: this.state.writing
       })

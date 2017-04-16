@@ -6,11 +6,12 @@ class Who extends Component {
 
   render() {
     let path = this.props.location.pathname
-    let array = this.props.pageIntro
+    let intros = this.props.pageIntro
     let skills = this.props.skill
+    let tools = this.props.tool
     return (
       <div className="who">
-        {_getPageIntro(array, path)}
+        {_getPageIntro(intros, path)}
         <a href={this.props.profile.resumePdf.fields.file.url} download={this.props.profile.resumePdf.fields.title}>
           Download my resume in PDF
         </a>
@@ -30,6 +31,32 @@ class Who extends Component {
           })
         }
         <h3>Tools</h3>
+        I can work magic in
+        {
+          tools.map((tool) => {
+            if (tool.fields.proficiency === "Proficient") {
+              return (
+                <div className="tool">
+                  <img src={tool.fields.logo.fields.file.url} style={{ height: 68 }} />
+                  <span key={tool.sys.id}>{tool.fields.name}</span>
+                </div>
+              )
+            }
+          })
+        }
+        with working knowledge of
+        {
+          tools.map((tool) => {
+            if (tool.fields.proficiency === "Working Knowledge") {
+              return (
+                <div className="tool">
+                  <img src={tool.fields.logo.fields.file.url} style={{ height: 68 }} />
+                  <span key={tool.sys.id}>{tool.fields.name}</span>
+                </div>
+              )
+            }
+          })
+        }
         <h3>Don't be shy</h3>
         <Link to="contact">Send me an email</Link>
         <a href={this.props.profile.linkedInProfile} target="_blank">
