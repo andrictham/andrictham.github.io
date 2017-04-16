@@ -37,11 +37,14 @@ class Who extends Component {
             if (tool.fields.proficiency === "Proficient") {
               return (
                 <div className="tool">
-                  <img src={tool.fields.logo.fields.file.url} style={{ height: 68 }} />
+                  <img
+                    src={tool.fields.logo.fields.file.url}
+                    style={{ height: 68 }}
+                    role="presentation" />
                   <span key={tool.sys.id}>{tool.fields.name}</span>
                 </div>
               )
-            }
+            } return null
           })
         }
         with working knowledge of
@@ -50,11 +53,14 @@ class Who extends Component {
             if (tool.fields.proficiency === "Working Knowledge") {
               return (
                 <div className="tool">
-                  <img src={tool.fields.logo.fields.file.url} style={{ height: 68 }} />
+                  <img
+                    src={tool.fields.logo.fields.file.url}
+                    style={{ height: 68 }}
+                    role="presentation" />
                   <span key={tool.sys.id}>{tool.fields.name}</span>
                 </div>
               )
-            }
+            } return null
           })
         }
         <h3>Don't be shy</h3>
