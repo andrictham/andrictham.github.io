@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import getPageIntro from './utils/_getPageIntro'
+import getPageIntro from '../utils/_getPageIntro'
 
 class Contact extends Component{
   render() {

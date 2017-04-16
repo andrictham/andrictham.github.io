@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import _getPageIntro from "./utils/_getPageIntro"
-import _getProjects from "./utils/_getProjects"
+import _getPageIntro from "../utils/_getPageIntro"
+import _getProjects from "../utils/_getProjects"
 
 class Work extends Component{
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router"
-import _getPageIntro from "./utils/_getPageIntro"
+import _getPageIntro from "../utils/_getPageIntro"
 
 class Who extends Component {
 

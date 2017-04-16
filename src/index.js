@@ -2,10 +2,11 @@ import React, { Component } from "react"
 import ReactDOM from "react-dom"
 import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from "react-router"
 import contentful from "contentful"
-import Home from "./home"
-import Who from "./who"
-import Work from "./work"
-import Contact from "./contact"
+import Header from "./components/Header"
+import Home from "./views/home"
+import Who from "./views/who"
+import Work from "./views/work"
+import Contact from "./views/contact"
 import "./index.css"
 
 var destination = document.querySelector("#root");
@@ -147,12 +148,7 @@ class App extends Component{
   )
     return (
       <div>
-        <ul className="header">
-          <li> <IndexLink to="/" activeClassName="active"> Andric </IndexLink> </li>
-          <li> <Link to="/who" activeClassName="active"> Who? </Link> </li>
-          <li> <Link to="/work" activeClassName="active"> Work </Link> </li>
-          <li> <Link to="/contact" activeClassName="active"> Contact </Link> </li>
-        </ul>
+        <Header />
         <div className="content">
           {children}
         </div>
