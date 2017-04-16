@@ -32,6 +32,7 @@ class Who extends Component {
         <a href={this.props.profile.linkedInProfile} target="_blank">
           Add me on LinkedIn
         </a>
+        <Link to="/work">Check out my work</Link>
       </div>
     )
   }

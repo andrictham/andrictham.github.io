@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router'
 
 class Home extends Component {
 
@@ -11,6 +12,7 @@ class Home extends Component {
         <p>{this.props.profile.writeup}</p>
         <p>{this.props.profile.location}</p>
         <p>{this.props.profile.currentPosition}</p>
+        <Link to="/who">More about me</Link>
       </div>
     );
   }
