@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { Router, Route, IndexRoute, IndexLink, Link, hashHistory } from "react-router"
+import { Router, Route, IndexRoute, hashHistory } from "react-router"
 import contentful from "contentful"
 import Nav from "./components/Nav"
 import Home from "./views/home"
