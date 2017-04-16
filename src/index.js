@@ -148,7 +148,7 @@ class App extends Component{
   )
     return (
       <div>
-        <Header />
+        <Nav />
         <div className="content">
           {children}
         </div>

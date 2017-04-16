@@ -1,7 +1,7 @@
 import React from "react";
 import { IndexLink, Link } from "react-router"
 
-const Header = () => {
+const Nav = () => {
   return (
     <ul className="header">
       <li> <IndexLink to="/" activeClassName="active"> Andric </IndexLink> </li>
@@ -12,4 +12,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Nav
