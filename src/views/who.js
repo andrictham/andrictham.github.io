@@ -12,17 +12,17 @@ class Who extends Component {
     return (
       <div className="who">
         {_getPageIntro(intros, path)}
-        <a className="button" href={this.props.profile.resumePdf.fields.file.url} download={this.props.profile.resumePdf.fields.title}>
+        <a className="button is-primary" href={this.props.profile.resumePdf.fields.file.url} download={this.props.profile.resumePdf.fields.title}>
           <span className="icon">
             <i className="fa fa-file-text-o" />
           </span>
-          Download my resume in PDF
+          <span>Download my resume in PDF</span>
         </a>
-        <a className="button" href={this.props.profile.linkedInProfile} target="_blank">
+        <a className="button is-primary is-outlined" href={this.props.profile.linkedInProfile} target="_blank">
           <span className="icon">
             <i className="fa fa-linkedin-square" />
           </span>
-          Find me on LinkedIn
+          <span>Find me on LinkedIn</span>
         </a>
         <h3>My Philosophy</h3>
         <p>{this.props.profile.philosophy}</p>
